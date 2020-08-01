@@ -27,13 +27,13 @@ class NewsActivity: AppCompatActivity() {
         val newsViewModelProviderFactory = NewsViewModelProviderFactory(newsRepo)
         viewModel = ViewModelProvider(this,newsViewModelProviderFactory).get(NewsViewModel::class.java)
 
-        bottomNavView.setupWithNavController(findNavController(R.id.newsNavFragment))
-        setupActionBarWithNavController(findNavController(R.id.newsNavFragment))
+        bottomNavigationView.setupWithNavController(findNavController(R.id.newsNavHostFragment))
+        setupActionBarWithNavController(findNavController(R.id.newsNavHostFragment))
 
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.newsNavFragment)
+        val navController = findNavController(R.id.newsNavHostFragment)
 
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
